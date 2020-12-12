@@ -1,8 +1,13 @@
-/*Reset CSS*/
+/*Reset CSS*/ 
+@font-face {
+  font-family: 'BarlowSemiCondensed-Regular';
+  src: local('BarlowSemiCondensed-Regular'), url(./css/fonts/BarlowSemiCondensed-Regular.ttf) format('truetype');
+}
+
 html {
 	box-sizing: border-box;
-  font-family: 'Barlow Semi Condensed', sans-serif; 
-   background-color: #110D0C;
+  font-family: 'BarlowSemiCondensed-Regular', sans-serif; 
+  
 }
 
 *, *:before, *:after {
@@ -14,6 +19,8 @@ body, h1, h2, h3, h4, h5, h6, p, ol, ul {
   margin: 0;
   padding: 0;
   color: #333333;
+   background-color: #110D0C;
+
 }
 
 

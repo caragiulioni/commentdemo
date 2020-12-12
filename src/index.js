@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './css/fonts/BarlowSemiCondensed-Bold.ttf';
+import './css/fonts/BarlowSemiCondensed-Regular.ttf';
 
 ReactDOM.render(
   <React.StrictMode>

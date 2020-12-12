@@ -1,8 +1,9 @@
 import React from "react";
 
+
 const Header = (props) => {
 	return (
-		<div class="header" id="${item.id}">
+		<div className="header" id="${item.id}">
 			<header></header>
 		</div>
 		)
