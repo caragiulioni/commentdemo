@@ -76,6 +76,10 @@ main{
 	margin: 0px 75px;
 }
 
+
+li{
+	margin: 20px 0px 10px 0px;
+}
 .header{
 	height: 380px;
 	background-image: url("https://storage.googleapis.com/caraimgs/mandoheader.jpg");
@@ -223,7 +227,7 @@ padding-top: 15px;
 }
 .userComment{
 	width: 350px;
-	margin: 20px 0px 10px 0px;
+	margin: 10px 0px 10px 0px;
 
 }
 

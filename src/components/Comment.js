@@ -16,11 +16,11 @@ class Comment extends React.Component {
 
 		//console.log(key);
 		
-		let d = new Date(key);
+		let getDate = new Date(key);
 
-		const date = d.toDateString();
+		const date = getDate.toDateString();
 
-		const time = d.toLocaleTimeString();
+		const time = getDate.toLocaleTimeString();
 
 		const dateTime = date+' at '+time;
 
