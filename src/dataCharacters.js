@@ -1,6 +1,4 @@
 
-const key = Date.now();
-
 const dataCharacters = [
 		{id: "000",
 		altText: "The Mandalorian wears his signature hetmut and regalia",

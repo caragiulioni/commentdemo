@@ -11,11 +11,7 @@ class Comment extends React.Component {
 
 
 		const { name, comment, value, key} = this.props.commentState;
-	
-		let avatar = this.props.commentState.label	
-
-		console.log(avatar);
-		
+			
 		//console.log(name, label, comment, key)
 
 		//console.log(key);
