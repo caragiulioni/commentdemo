@@ -9,6 +9,7 @@ import Comments from "./components/Comments.js";
 import dataSynopsis from "./dataSynopsis.js";
 import dataCharacters from "./dataCharacters.js";
 import dataAvatars from "./dataAvatars.js";
+import dataComments from "./dataComments.js";
 
 import "./styles.css"
 // import './App.css';
@@ -17,26 +18,61 @@ import "./styles.css"
 
 class App extends React.Component {
 
+     
+    state= {              
+      comments:  JSON.parse(localStorage.getItem("stored")) || dataComments,
+    };
+
+     componentDidUpdate(){
+        //console.log(this.state.comments);
+        //console.log(dataComments);
+        //console.log("component updating");
+
+        let commentsSerialized = JSON.stringify(this.state.comments);
+        //console.log("serialized", commentsSerialized);
+
+        localStorage.setItem("stored", commentsSerialized);
+        //console.log("local storage", localStorage);
+
+        let commentsDeserialized = JSON.parse(localStorage.getItem("stored"));
+        console.log("get stored items", commentsDeserialized); 
+
+      };
 
     addComment = (comment) =>{
 
-      console.log("commenting")
-    // //onsole.log("adding a fish from APP.js via props Inventory => addfishform!")
+      //console.log("adding comment")
+
     // //SET STATE
     // //1. take a copy of the existing state NO MUTATIONS, we only modify copies data
     // //use a spread operator because its the cleaest, least verbose way
-    // const fishes = {...this.state.fishes};
+      const comments = {...this.state.comments};
     // //2. add out NEW fish to the copied state
-    // fishes[`fish${Date.now()}`] = fish; //FISH comes via the FISH object relative to the addFishFrom
 
-    // //3, Set the new fishes obect to state. in this case we want to update the state of fishes, add the new fishes and overright the previous state
-    // this.setState({
-    //   fishes: fishes,
-    // });
-  };
+     const key = Date.now();
+
+      comments[key] = comment; //FISH comes via the FISH object relative to the addFishFrom  
+
+      //console.log(key)
+
+      // //3, Set the new fishes obect to state. in this case we want to update the state of fishes, add the new fishes and overright the previous state
+        this.setState({
+          comments: comments,
+      });
+
+     //console.log(comments);
+    };
+
+    
  
     render() {
+     //console.log(this.state.comments);
 
+
+
+      const commentState = (this.state.comments);
+
+      //console.log(commentState);
         return (
               <div className="App">
                 <Header />
@@ -44,7 +80,7 @@ class App extends React.Component {
                   <main>
                     <Synopsis dataSynopsis={dataSynopsis} />
                     <Characters dataCharacters={dataCharacters} />
-                    <Comments addComment={this.addComment} dataAvatars={dataAvatars} />
+                    <Comments commentState={commentState} addComment={this.addComment} dataAvatars={dataAvatars} />
                   </main>
                 </div>
               </div>  

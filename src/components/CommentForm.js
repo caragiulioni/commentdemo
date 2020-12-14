@@ -5,35 +5,35 @@ let select = "";
 class CommentForm extends React.Component {
 
 		getSelect = (event) =>{
-			select = event.target.value;
-			console.log("This is the correct selection", select);
+			this.select = event.target.value;
+			console.log(this.select);
 		};
 
 		nameRef = React.createRef();
 		commentRef = React.createRef();
-		labelRef = React.createRef();
 		valueRef = React.createRef();
 
 		createComment = event => {
 			//1. stop empty form from submitting
 			event.preventDefault();
 
-			console.log("COMMENT DATA", this.nameRef.current.value, this.commentRef.current.value, "this is the buggy selection", this.labelRef.current.value)
+			//console.log("COMMENT DATA", this.nameRef.current.value, this.commentRef.current.value, "this is the buggy selection", this.labelRef.current.value)
 
-			console.log(this.props.dataAvatars);
+			//console.log(this.props.dataAvatars);
 
 			let data = this.props.dataAvatars;
 
-			
+						
 			//2. Get the values
 			const comment= {
 				name: this.nameRef.current.value,
 				comment: this.commentRef.current.value,
-				label: this.labelRef.current.value,
+				value: this.valueRef.current.value,
+				key: Date.now(),
 			}
 
-			console.log(comment);
-			console.log("this is the buggy selection", comment.label);
+			//console.log(comment);
+			//console.log("this is the buggy selection", comment.label);
 			this.props.addComment(comment);
 			//refresh the form
 			//console.log(event.currentTarget);
@@ -47,6 +47,8 @@ class CommentForm extends React.Component {
 		const data = (this.props.dataAvatars)
 		//console.log("data", data);
 
+
+		console.log(this.select);
 		return (
 				<form className="commentForm" onSubmit={this.createComment}>
 					<input required name="name" ref={this.nameRef} autoFocus type="text" aria-label="Tell us your name" placeholder="Tell us your name" className="nameInput" />
@@ -54,7 +56,7 @@ class CommentForm extends React.Component {
 				  	<select name="option" required onChange={this.getSelect} defaultValue=""  className="formSelect" id="select">
 				  		<option value="" disabled>Pick an avatar!</option>
 				  		{data.map((item) => 
-				  			<option name={item.label} value={item.label} ref={this.labelRef} key={item.label}>{item.label}</option>
+				  			<option name={item.label} value={item.value} ref={this.valueRef} key={item.label}>{item.label}</option>
 				  		)};
 				  	</select>
 		  			<button type="submit">Submit</button>
