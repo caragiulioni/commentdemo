@@ -299,6 +299,8 @@ padding-top: 15px;
 }
 
 
+
+
 @media only screen and (max-width: 1249px) {
 	.charactersMain{
 		grid-column-gap: 30px;
@@ -326,6 +328,10 @@ padding-top: 15px;
 }
 
 @media only screen and (max-width: 900px) {
+
+	main{
+	margin: 0px 15px;
+}
 	.header{
 	height: 190px;
 	}
