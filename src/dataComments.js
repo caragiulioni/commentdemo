@@ -1,7 +1,7 @@
 const dataComments = {
 1605710700000: {
 		name: "Darth Vader", 
-		comment: "Great show but I cant say that I appriecate being left out.", 
+		comment: "Great show but I don't appreciate being left out.", 
 		value: "https://storage.googleapis.com/caraimgs/darth.jpg", 
 		key: 1605710700000},
 1607947437172: {

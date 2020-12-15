@@ -129,6 +129,24 @@ padding-top: 15px;
 .character h3{
 	margin: 5px 0px;
 }
+
+
+.likes {
+	margin: 20px 0px;
+}
+.likes h3{
+	margin:0;
+	font-size: 1em;
+}
+.likeFunction{
+	display: flex;
+	align-items: baseline;
+}
+
+.likeFunction span {
+	font-size: 1.5em;
+}
+
 .synopsis a,
 .characterInfo a,
 .likeFunction button{
@@ -160,7 +178,7 @@ padding-top: 15px;
 }
 
 .likeFunction{
-	margin: 20px 0px;
+	margin: 10px 0px;
 }
 
 .likeFunction p{
@@ -185,7 +203,7 @@ padding-top: 15px;
 	border:none;
 }
 
-.likeFunction i{
+.likeFunction .thumb{
 	font-size: 3em;
 }
 

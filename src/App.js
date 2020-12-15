@@ -5,6 +5,7 @@ import Header from "./components/Header.js";
 import Synopsis from "./components/Synopsis.js";
 import Characters from "./components/Characters.js";
 import Comments from "./components/Comments.js";
+import Likes from "./components/Likes.js";
 
 import dataSynopsis from "./dataSynopsis.js";
 import dataCharacters from "./dataCharacters.js";
@@ -20,7 +21,8 @@ class App extends React.Component {
 
      
     state= {              
-      comments:  JSON.parse(localStorage.getItem("stored")) || dataComments,
+      comments:  JSON.parse(localStorage.getItem("commentDemoComments")) || dataComments,
+      likes: JSON.parse(localStorage.getItem("commentDemoLikes")) || 12,
     };
 
      componentDidUpdate(){
@@ -28,14 +30,22 @@ class App extends React.Component {
         //console.log(dataComments);
         //console.log("component updating");
 
+
+        //STORE COMMENTS
         let commentsSerialized = JSON.stringify(this.state.comments);
         //console.log("serialized", commentsSerialized);
 
-        localStorage.setItem("stored", commentsSerialized);
+        localStorage.setItem("commentDemoComments", commentsSerialized);
         //console.log("local storage", localStorage);
 
-        let commentsDeserialized = JSON.parse(localStorage.getItem("stored"));
+        let commentsDeserialized = JSON.parse(localStorage.getItem("commentDemoComments"));
         console.log("get stored items", commentsDeserialized); 
+
+
+        //STORELIKES
+        let likesSerialized = JSON.stringify(this.state.likes);
+        localStorage.setItem("commentDemoLikes", likesSerialized);
+        let likesDeserialized = JSON.parse(localStorage.getItem("commentDemoLikes"));
 
       };
 
@@ -44,18 +54,17 @@ class App extends React.Component {
       //console.log("adding comment")
 
     // //SET STATE
-    // //1. take a copy of the existing state NO MUTATIONS, we only modify copies data
-    // //use a spread operator because its the cleaest, least verbose way
       const comments = {...this.state.comments};
-    // //2. add out NEW fish to the copied state
+      //2. add out item/comment to the copied state
 
      const key = Date.now();
+     //give it a unique key
 
-      comments[key] = comment; //FISH comes via the FISH object relative to the addFishFrom  
+      comments[key] = comment;
 
       //console.log(key)
 
-      // //3, Set the new fishes obect to state. in this case we want to update the state of fishes, add the new fishes and overright the previous state
+      // //3, Set the NEW comment obect to state.
         this.setState({
           comments: comments,
       });
@@ -63,16 +72,23 @@ class App extends React.Component {
      //console.log(comments);
     };
 
-    
  
     render() {
      //console.log(this.state.comments);
 
-
-
       const commentState = (this.state.comments);
 
+      const likesState = (this.state.likes);
+
+      const likesIncrement = () =>{
+        console.log("clicked");
+        let newCount = this.state.likes+ 1
+        this.setState({ likes: newCount})
+        console.log(newCount)
+      };
+
       //console.log(commentState);
+      console.log(likesState);
         return (
               <div className="App">
                 <Header />
@@ -80,6 +96,7 @@ class App extends React.Component {
                   <main>
                     <Synopsis dataSynopsis={dataSynopsis} />
                     <Characters dataCharacters={dataCharacters} />
+                    <Likes likesState={likesState} likesIncrement={likesIncrement} />
                     <Comments commentState={commentState} addComment={this.addComment} dataAvatars={dataAvatars} />
                   </main>
                 </div>
