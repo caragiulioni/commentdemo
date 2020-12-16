@@ -89,6 +89,8 @@ class App extends React.Component {
       //console.log(commentState);
       console.log(likesState);
         return (
+
+
               <div className="App">
                 <Header />
                 <div className="wrapper">
@@ -99,7 +101,7 @@ class App extends React.Component {
                     <Comments commentState={commentState} addComment={this.addComment} dataAvatars={dataAvatars} />
                   </main>
                 </div>
-              </div>  
+              </div>
         );
     }
 }
