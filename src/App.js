@@ -1,5 +1,6 @@
 import React from "react";
 
+import MetaData from "./components/MetaData.js"
 import Header from "./components/Header.js";
 import Synopsis from "./components/Synopsis.js";
 import Characters from "./components/Characters.js";
@@ -90,6 +91,7 @@ class App extends React.Component {
       console.log(likesState);
         return (
               <div className="App">
+                <MetaData />
                 <Header />
                 <div className="wrapper">
                   <main>
@@ -99,7 +101,7 @@ class App extends React.Component {
                     <Comments commentState={commentState} addComment={this.addComment} dataAvatars={dataAvatars} />
                   </main>
                 </div>
-              </div>  
+              </div>
         );
     }
 }
