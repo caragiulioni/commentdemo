@@ -37,14 +37,14 @@ class App extends React.Component {
         localStorage.setItem("commentDemoComments", commentsSerialized);
         //console.log("local storage", localStorage);
 
-        let commentsDeserialized = JSON.parse(localStorage.getItem("commentDemoComments"));
-        console.log("get stored items", commentsDeserialized); 
+        //let commentsDeserialized = JSON.parse(localStorage.getItem("commentDemoComments"));
+        //console.log("get stored items", commentsDeserialized); 
 
 
         //STORELIKES
         let likesSerialized = JSON.stringify(this.state.likes);
         localStorage.setItem("commentDemoLikes", likesSerialized);
-        let likesDeserialized = JSON.parse(localStorage.getItem("commentDemoLikes"));
+        //let likesDeserialized = JSON.parse(localStorage.getItem("commentDemoLikes"));
 
       };
 

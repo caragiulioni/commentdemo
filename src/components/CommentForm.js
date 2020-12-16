@@ -19,9 +19,6 @@ class CommentForm extends React.Component {
 			//console.log("COMMENT DATA", this.nameRef.current.value, this.commentRef.current.value, "this is the buggy selection", this.labelRef.current.value)
 
 			//console.log(this.props.dataAvatars);
-
-			const data = this.props.dataAvatars;
-
 						
 			//2. Get the values
 			const comment= {
@@ -48,8 +45,8 @@ class CommentForm extends React.Component {
 
 		return (
 				<form className="commentForm" onSubmit={this.createComment}>
-					<input required name="name" ref={this.nameRef} autoFocus type="text" aria-label="Tell us your name" placeholder="Tell us your name" className="nameInput" />
-				 	<textarea required name="comment" ref={this.commentRef} autoFocus type="text" aria-label="Leave us a comment" placeholder="Leave us a comment!" className="commentInput"></textarea>
+					<input required name="name" ref={this.nameRef} type="text" aria-label="Tell us your name" placeholder="Tell us your name" className="nameInput" />
+				 	<textarea required name="comment" ref={this.commentRef} type="text" aria-label="Leave us a comment" placeholder="Leave us a comment!" className="commentInput"></textarea>
 				  	<select name="option" required onChange={this.getSelect} defaultValue="" className="formSelect" id="select">
 				  		<option value="" disabled>Pick an avatar!</option>
 				  		{data.map((item) => 
