@@ -44,7 +44,7 @@ class App extends React.Component {
         //STORELIKES
         let likesSerialized = JSON.stringify(this.state.likes);
         localStorage.setItem("commentDemoLikes", likesSerialized);
-        let likesDeserialized = JSON.parse(localStorage.getItem("commentDemoLikes"));
+        //let likesDeserialized = JSON.parse(localStorage.getItem("commentDemoLikes"));
 
       };
 
