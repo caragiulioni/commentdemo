@@ -63,7 +63,7 @@ class App extends React.Component {
 
       //console.log(key)
 
-      // //3, Set the NEW comment obect to state.
+      // //3. Set the NEW comment obect to state.
         this.setState({
           comments: comments,
       });
@@ -80,14 +80,14 @@ class App extends React.Component {
       const likesState = (this.state.likes);
 
       const likesIncrement = () =>{
-        console.log("clicked");
+        //console.log("clicked");
         let newCount = this.state.likes+ 1
         this.setState({ likes: newCount})
-        console.log(newCount)
+        //console.log(newCount);
       };
 
       //console.log(commentState);
-      console.log(likesState);
+      //console.log(likesState);
         return (
               <div className="App">
                 <Header />
